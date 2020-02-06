@@ -4,12 +4,12 @@
 Neomorphism UI shadows for iOS &amp; Android, include SVG inner/outer shadow component powered with react-native-svg, which can provide shadow on Android identical like iOS.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/example_shadow.gif" width="355">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/example_neomorph.gif" width="355">
+  <img src="assets/example_shadow.gif" width="355">
+  <img src="assets/example_neomorph.gif" width="355">
 </p>
 
 ## Installation
----
+***
 ### Step 1
 Run the command below to install the plugin.
 ```
@@ -24,7 +24,7 @@ npm i react-native-svg
 Great! Let's start to use it.
 
 ## Usage
----
+***
 There are two components: ShadowBox & NeomorphBox 
 Prop style supports most of the view styles.
 
@@ -34,8 +34,8 @@ Prop style supports most of the view styles.
 SVG Shadow works and style props identical like iOS shadow UI
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/shadow.png" height="240">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/InnerShadow.png" height="240">
+  <img src="assets/shadow.png" height="240">
+  <img src="assets/inner_shadow.png" height="240">
 </p>
 
 ```
@@ -66,8 +66,8 @@ import { ShadowBox } from 'react-native-neomorph-shadows';
 Opacity of two shadows automaticly changing and depends of `backgrounColor` brightness.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph.png" height="240">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/InnerNeomorph.png" height="240">
+  <img src="assets/neomorph.png" height="240">
+  <img src="assets/inner_neomorph.png" height="240">
 </p>
 
 ```
@@ -93,7 +93,7 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 ### Nested NeomorphBox
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorphNested.png" height="250">
+  <img src="assets/neomorph_nested.png" height="250">
 </p>
 
 ```
@@ -134,7 +134,7 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 ```
 
 ## Props
-----
+***
 ### ShadowBox props
 
 | Prop | Required | Type | Default | Description | 
