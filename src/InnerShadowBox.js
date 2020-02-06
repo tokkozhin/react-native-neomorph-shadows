@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View } from 'react-native';
-import InnerShadowSvg from './InnerShadowSvg';
+import InnerShadowSvg from './src/InnerShadowSvg';
 
 export default class InnerShadowBox extends React.PureComponent {
 
@@ -43,8 +43,7 @@ export default class InnerShadowBox extends React.PureComponent {
             width: width, 
             height: height, 
             borderRadius: borderRadius, 
-            overflow: 'hidden', 
-            backgroundColor: shadowColor,
+            overflow: 'hidden',
             flex: 0,
           }}
           onLayout={(width && height) ? null : this.onLayout}
@@ -82,12 +81,12 @@ InnerShadowBox.defaultProps = {
   style: {
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 1,
-    shadowRadius: 10,
+    shadowOpacity: 0,
+    shadowRadius: 0,
     width: 0,
     height: 0,
-    borderRadius: 30,
-    backgroundColor: 'white'
+    borderRadius: 0,
+    backgroundColor: 'transparent'
   },
 };
 InnerShadowBox.propTypes = {

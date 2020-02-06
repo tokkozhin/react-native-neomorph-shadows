@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
-import OuterShadowBox from './OuterShadowBox';
+import OuterShadowBox from './src/OuterShadowBox';
 import InnerShadowBox from './InnerShadowBox';
 
 //get brightness from rgb/hex color
@@ -49,12 +49,12 @@ const interpolate = (val, min, max) => {
 const NeomorphBox = ({
   style: {
     shadowOffset = null,
-    borderRadius = 10,
-    shadowRadius = 10,
+    borderRadius = 0,
+    shadowRadius = 0,
     backgroundColor = 'rgb(230,230,230)',
     shadowOpacity = 0,
-    width = 50,
-    height = 50,
+    width = 0,
+    height = 0,
     ...otherStyle
   },
   inner,
@@ -147,6 +147,15 @@ NeomorphBox.defaultProps = {
   inner: false,
   useSvg: false,
   swapShadowLevel: false,
+  style: {
+    backgroundColor: 'rgb(230,230,230)',
+    width: 0,
+    height: 0,
+    borderRadius: 0,
+    shadowRadius: 0,
+    shadowOpacity: 0,
+    shadowOffset: null
+  }
 };
 NeomorphBox.propTypes = {
   inner: PropTypes.bool,

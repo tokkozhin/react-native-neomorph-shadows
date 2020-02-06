@@ -4,7 +4,7 @@ import {
   View,
   Platform,
 } from 'react-native';
-import OuterShadowSvg from './OuterShadowSvg';
+import OuterShadowSvg from './src/OuterShadowSvg';
 
 export default class OuterShadowBox extends React.PureComponent {
 
@@ -95,9 +95,9 @@ OuterShadowBox.defaultProps = {
   style: {
     shadowColor: 'black',
     shadowOffset: {width: 0, height: 0},
-    shadowOpacity: 1,
-    shadowRadius: 10,
-    borderRadius: 30,
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    borderRadius: 0,
     backgroundColor: 'white'
   },
 };

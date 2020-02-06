@@ -25,8 +25,8 @@ ShadowBox.propTypes = {
     }),
     shadowOpacity: PropTypes.number,
     shadowRadius: PropTypes.number,
-    width: PropTypes.number,
-    height: PropTypes.number,
+    width: PropTypes.number.isRequired,
+    height: PropTypes.number.isRequired,
     borderRadius: PropTypes.number,
     backgroundColor: PropTypes.string
   }),
