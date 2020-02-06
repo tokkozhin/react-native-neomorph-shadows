@@ -4,7 +4,7 @@ import {
   View,
   Platform,
 } from 'react-native';
-import OuterShadowSvg from './src/OuterShadowSvg';
+import OuterShadowSvg from './OuterShadowSvg';
 
 export default class OuterShadowBox extends React.PureComponent {
 

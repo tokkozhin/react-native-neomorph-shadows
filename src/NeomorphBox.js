@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { View, StyleSheet } from 'react-native';
-import OuterShadowBox from './src/OuterShadowBox';
+import OuterShadowBox from './OuterShadowBox';
 import InnerShadowBox from './InnerShadowBox';
 
 //get brightness from rgb/hex color
