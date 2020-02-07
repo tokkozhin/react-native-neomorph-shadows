@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import OuterShadowBox from './OuterShadowBox';
 import InnerShadowBox from './InnerShadowBox';
 
@@ -33,7 +33,7 @@ function brightness(color) {
   return hsp;
 }
 
-// exponental transform brightness to opacity
+//exponental transform brightness to opacity
 const brightnessToOpacity = (val) => {
   const ratio = 50;
   const ratioBraghtness = val * (1 / 255); 
@@ -115,30 +115,31 @@ const NeomorphBox = ({
   const styleLightShadowBox = {...styles.neomorphLight, ...styleLight};
 
   return inner ? (
-    <View style={[styles.neomorphContainer, {width: width,  height: height, ...otherStyle, backgroundColor: 'transparent'}]}>
+    <View style={{ 
+      ...otherStyle, 
+      width: width,  
+      height: height, 
+      borderRadius: borderRadius,
+      backgroundColor: backgroundColor,
+      borderWidth: 0,
+    }}>
       <InnerShadowBox style={swapShadowLevel ? styleLightShadowBox : styleDarkShadowBox}>
-        <InnerShadowBox style={swapShadowLevel ? styleDarkShadowBox : styleLightShadowBox}>
-          <View style={[
-            styles.neomorphBox, 
-            {width: width,  height: height, borderRadius: borderRadius, backgroundColor: backgroundColor}, 
-            {...otherStyle}
-          ]}>
-            {children}
-          </View>
-        </InnerShadowBox>
+        <InnerShadowBox style={swapShadowLevel ? styleDarkShadowBox : styleLightShadowBox}/>
       </InnerShadowBox>
+      {children}
     </View>
   ) : (
-    <View style={[styles.neomorphContainer, {width: width,  height: height, ...otherStyle, backgroundColor: 'transparent'}]}>
+    <View style={{ 
+      ...otherStyle, 
+      width: width,  
+      height: height, 
+      backgroundColor: backgroundColor,
+      borderRadius: borderRadius,
+      borderWidth: 0,
+    }}>
       <OuterShadowBox style={swapShadowLevel ? styleDarkShadowBox : styleLightShadowBox} useSvg={useSvg}/>
       <OuterShadowBox style={swapShadowLevel ? styleLightShadowBox : styleDarkShadowBox} useSvg={useSvg}/>
-      <View style={[
-        styles.neomorphBox, 
-        {width: width,  height: height, borderRadius: borderRadius, backgroundColor: backgroundColor}, 
-        {...otherStyle}
-      ]}>
-        {children}
-      </View>
+      {children}
     </View>
   )
 }
@@ -163,7 +164,7 @@ NeomorphBox.propTypes = {
   useSvg: PropTypes.bool,
   children: PropTypes.node,
   style: PropTypes.shape({
-    backgroundColor: PropTypes.string.isRequired,
+    backgroundColor: PropTypes.string,
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     borderRadius: PropTypes.number,
@@ -179,9 +180,6 @@ NeomorphBox.propTypes = {
 };
 
 const styles = StyleSheet.create({
-  neomorphBox: {
-    zIndex: 3
-  },
   neomorphLight: {
     shadowColor: 'white',
     position: 'absolute',

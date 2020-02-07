@@ -54,7 +54,13 @@ export default class OuterShadowBox extends React.PureComponent {
 
     return (
         <View 
-          style={{...otherStyles, width: width, height: height}} 
+          style={{
+            ...otherStyles, 
+            width: width, 
+            height: height,
+            borderWidth: 0,
+            flex: 0
+          }} 
           onLayout={(width && height) ? null : this.onLayout}
           ref={ref => this.shadowBox = ref}
         >
@@ -68,12 +74,14 @@ export default class OuterShadowBox extends React.PureComponent {
             shadowOffset
           }}/>
           <View style={{
-            ...otherStyles,
             zIndex: 2,
             width: width, 
             height: height, 
             borderRadius: borderRadius,
             backgroundColor: backgroundColor,
+            position: 'absolute',
+            top: 0,
+            left: 0,
           }} >
             {children}
           </View>

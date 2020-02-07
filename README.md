@@ -9,7 +9,7 @@ Neomorphism UI shadows for iOS &amp; Android, include SVG inner/outer shadow com
 </p>
 
 ## Installation
-***
+
 ### Step 1
 Run the command below to install the plugin.
 ```
@@ -24,7 +24,7 @@ npm i react-native-svg
 Great! Let's start to use it.
 
 ## Usage
-***
+
 There are two components: ShadowBox & NeomorphBox 
 Prop style supports most of the view styles.
 
@@ -134,7 +134,7 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 ```
 
 ## Props
-***
+
 ### ShadowBox props
 
 | Prop | Required | Type | Default | Description | 
@@ -148,7 +148,7 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 
 | Prop | Required | Type | Default | Description | 
 | ---- | -------- | ---- | ------- | ----------- |
-| style | false | object | {<br>shadowColor: 'black',<br>shadowOffset: {width: 0, height: 0},<br> shadowOpacity: 0,<br>shadowRadius: 0,<br>backgroundColor: 'white'<br>} | Like View`s style prop with a few difference. **Flex** not available. **width**, **height** & **backgroundColor** is required. |  | 
+| style | false | object | {<br>shadowColor: 'black',<br>shadowOffset: {width: 0, height: 0},<br> shadowOpacity: 0,<br>shadowRadius: 0,<br>backgroundColor: 'white'<br>} | Like View`s style prop with a few difference. **Flex** not available. **width** & **height** is required. |  | 
 | swapShadowLevel | false | bool | false | If **true**, the value of `zIndex` property both shadows will swap|
 | inner | false | bool | false | If **true**, shadows will be inside of component |
 | children | false | node | undefined |  |
