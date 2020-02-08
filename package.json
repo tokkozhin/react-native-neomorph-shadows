@@ -1,6 +1,6 @@
 {
   "name": "react-native-neomorph-shadows",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "Neomorphism UI shadows for iOS & Android, include SVG inner/outer shadow component powered with react-native-svg, which can provide shadow on Android identical like iOS",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,8 @@
     "component",
     "neomorph",
     "neomorphism",
+    "skeuomorphic",
+    "skeuomorphism",
     "shadowbox",
     "shadow",
     "shadow-view",

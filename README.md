@@ -21,6 +21,17 @@ Install SVG library if not installed in your project [`react-native-svg`](https:
 ```
 npm i react-native-svg
 ```
+With autolinking (react-native 0.60+)
+
+```bash
+cd ios && pod install
+```
+
+Pre 0.60
+
+```bash
+react-native link react-native-svg
+```
 Great! Let's start to use it.
 
 ## Usage
@@ -28,7 +39,7 @@ Great! Let's start to use it.
 There are two components: ShadowBox & NeomorphBox 
 Prop style supports most of the view styles.
 
-<b>IMPORTANT: ShadowBox & NeomorphBox dont't support `Flex`.</b>
+**IMPORTANT: ShadowBox & NeomorphBox dont't support `Flex`.**
 ### ShadowBox
 
 SVG Shadow works and style props identical like iOS shadow UI
@@ -133,6 +144,27 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 </NeomorphBox>
 ```
 
+### Custom shadows color of NeomorphBox
+
+<p align="center">
+  <img src="assets/neomorph_custom_colors.jpg" height="270">
+</p>
+
+```
+<NeomorphBox
+  darkShadowColor="#FF3333"    <- set this
+  lightShadowColor="#3344FF"   <- this
+  style={{
+    shadowOpacity: 0.3,    <- and this or yours opacity
+    shadowRadius: 15,
+    borderRadius: 50,
+    backgroundColor: '#ECF0F3',
+    width: 200,
+    height: 200,
+  }}
+/>
+```
+
 ## Props
 
 ### ShadowBox props
@@ -151,4 +183,10 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 | style | false | object | {<br>shadowColor: 'black',<br>shadowOffset: {width: 0, height: 0},<br> shadowOpacity: 0,<br>shadowRadius: 0,<br>backgroundColor: 'white'<br>} | Like View`s style prop with a few difference. **Flex** not available. **width** & **height** is required. |  | 
 | swapShadowLevel | false | bool | false | If **true**, the value of `zIndex` property both shadows will swap|
 | inner | false | bool | false | If **true**, shadows will be inside of component |
+| darkShadowColor | false | string | 'black' | Dark shadow color |
+| lightShadowColor | false | string | 'white' | Light shadow color |
 | children | false | node | undefined |  |
+
+## Expo snack example
+
+[https://snack.expo.io/@tokkozhin/clock-|-shadows-and-neomorphism](https://snack.expo.io/@tokkozhin/clock-|-shadows-and-neomorphism)
