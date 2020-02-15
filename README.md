@@ -189,4 +189,4 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 
 ## Expo snack example
 
-[https://snack.expo.io/@tokkozhin/clock-|-shadows-and-neomorphism](https://snack.expo.io/@tokkozhin/clock-|-shadows-and-neomorphism)
+[https://snack.expo.io/@tokkozhin/clock---shadows-and-neomorphism](https://snack.expo.io/@tokkozhin/clock---shadows-and-neomorphism)
