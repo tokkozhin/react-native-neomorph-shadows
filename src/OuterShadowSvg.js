@@ -1,12 +1,14 @@
+/* eslint-disable react-native/no-inline-styles */
+/* eslint-disable prettier/prettier */
 import React from 'react';
 import PropTypes from 'prop-types';
 import Svg, {
-  LinearGradient, 
-  RadialGradient, 
-  Rect, 
+  LinearGradient,
+  RadialGradient,
+  Rect,
   Defs,
   Stop,
-  Path
+  Path,
 } from 'react-native-svg';
 
 const ShadowSvg = ({
@@ -18,19 +20,18 @@ const ShadowSvg = ({
   width,
   height,
 }) => {
-
   const smallerSide = width < height ? width : height;
   let _borderRadius = borderRadius - shadowRadius;
-  if(borderRadius < shadowRadius){
+  if (borderRadius < shadowRadius) {
     _borderRadius = 0;
   }
 
-  if(
-    borderRadius >= width / 2 || 
-    borderRadius >= height / 2 || 
-    shadowRadius >= width / 2 || 
+  if (
+    borderRadius >= width / 2 ||
+    borderRadius >= height / 2 ||
+    shadowRadius >= width / 2 ||
     shadowRadius >= height / 2
-  ){
+  ) {
     _borderRadius = smallerSide / 2 - shadowRadius;
   }
 
@@ -38,17 +39,17 @@ const ShadowSvg = ({
   const diff = shadowRadius / smallerSide;
   let opacitySVGShadow = 1;
   //console.log(diff);
-  if(diff >= 0.55){
+  if (diff >= 0.55) {
     opacitySVGShadow = 0.9;
-    if(diff >= 0.6){
+    if (diff >= 0.6) {
       opacitySVGShadow = 0.8;
-      if(diff >= 0.85){
+      if (diff >= 0.85) {
         opacitySVGShadow = 0.6;
-        if(diff >= 1.1){
+        if (diff >= 1.1) {
           opacitySVGShadow = 0.4;
-          if(diff >= 1.25){
+          if (diff >= 1.25) {
             opacitySVGShadow = 0.3;
-            if(shadowRadius >= 2){
+            if (shadowRadius >= 2) {
               opacitySVGShadow = 0.2;
             }
           }
@@ -61,35 +62,40 @@ const ShadowSvg = ({
   const s_r = _shadowRadius + _borderRadius;
   const s_w = width - (_borderRadius + shadowRadius) * 2;
   const s_h = height - (_borderRadius + shadowRadius) * 2;
-  const s_o = shadowOpacity * .9;
-  //const easeOpacityRange = [1, 0.6, 0.26, 0.11, 0.02];
+  const s_o = shadowOpacity * 0.9;
   const easeOpacityRange = [1, 0.75, 0.49, 0.26, 0.1, 0.02, 0];
 
-  let edge = ( _borderRadius / s_r ) || 0;
-  if(edge < 0) edge = 0;
+  let edge = _borderRadius / s_r || 0;
+  if (edge < 0) {
+    edge = 0;
+  }
   const step = (1 - edge) / easeOpacityRange.length;
 
-  const easeLinearGradient = (key) => {
-    return [ ...[1, ...easeOpacityRange, 0].map((rangeValue, i) => 
-      <Stop 
-        offset={`${ i === 0 ? 0 : i === (easeOpacityRange.length + 1) ? 1 : (edge + step * (i - 1)) }`} 
-        stopColor={shadowColor} 
-        stopOpacity={`${s_o * rangeValue}`} 
-        key={key + 'linear_' + i} 
-      />
-    )];
-  }
+  const easeLinearGradient = key => {
+    return [
+      ...[1, ...easeOpacityRange, 0].map((rangeValue, i) => (
+        <Stop
+          offset={`${i === 0 ? 0 : i === easeOpacityRange.length + 1 ? 1 : edge + step * (i - 1)}`}
+          stopColor={shadowColor}
+          stopOpacity={`${s_o * rangeValue}`}
+          key={key + 'linear_' + i}
+        />
+      )),
+    ];
+  };
 
-  const easeRadialGradient = (key) => {
-    return [ ...[1, ...easeOpacityRange, 0].map((rangeValue, i) => 
-      <Stop 
-        offset={`${ i === 0 ? 0 : i === (easeOpacityRange.length + 1) ? 1 : (edge + step * (i - 1)) }`} 
-        stopColor={shadowColor} 
-        stopOpacity={`${s_o * rangeValue}`} 
-        key={key + 'radial_' + i} 
-      />
-    )];
-  }
+  const easeRadialGradient = key => {
+    return [
+      ...[1, ...easeOpacityRange, 0].map((rangeValue, i) => (
+        <Stop
+          offset={`${i === 0 ? 0 : i === easeOpacityRange.length + 1 ? 1 : edge + step * (i - 1) }`}
+          stopColor={shadowColor}
+          stopOpacity={`${s_o * rangeValue}`}
+          key={key + 'radial_' + i}
+        />
+      )),
+    ];
+  };
 
   const radialShapes = () => {
     const coord_1 = s_w + s_r;
@@ -102,7 +108,7 @@ const ShadowSvg = ({
       <Path d={`M${s_r},${coord_4} a${s_r},${s_r} 0 0 1 -${s_r},-${s_r} L${s_r},${coord_3} z`} fill="url(#bottomLeft)" key={'radial_shape_2'} />,
       <Path d={`M${coord_2},${coord_3} a${s_r},${s_r} 0 0 1 -${s_r},${s_r} L${coord_1},${coord_3} z`} fill="url(#bottomRight)" key={'radial_shape_3'}/>,
     ];
-  }
+  };
 
   const rectShapes = () => {
     return [
@@ -111,16 +117,19 @@ const ShadowSvg = ({
       <Rect y={s_r} width={s_r} height={s_h} key={'rect_shape_2'} fill="url(#left)" x={0} />,
       <Rect y={s_r} width={s_r} height={s_h} key={'rect_shape_3'} fill="url(#right)" x={s_w + s_r} />,
     ];
-  }
+  };
 
   return (
-    <Svg width={width + s_r * 2 + s_w} height={height + s_r * 2 + s_h} style={{
-      top: -_shadowRadius + shadowRadius + shadowOffset.height, 
-      left: -_shadowRadius + shadowRadius + shadowOffset.width, 
-      position: 'absolute',
-      zIndex: 1,
-      opacity: opacitySVGShadow
-    }}>
+    <Svg
+      width={width + s_r * 2 + s_w}
+      height={height + s_r * 2 + s_h}
+      style={{
+        top: -_shadowRadius + shadowRadius + shadowOffset.height,
+        left: -_shadowRadius + shadowRadius + shadowOffset.width,
+        position: 'absolute',
+        zIndex: 1,
+        opacity: opacitySVGShadow,
+      }}>
       <Defs>
         <LinearGradient id="top" x1="0%" x2="0%" y1="100%" y2="0%">{easeLinearGradient('top')}</LinearGradient>
         <LinearGradient id="bottom" x1="0%" x2="0%" y1="0%" y2="100%">{easeLinearGradient('bottom')}</LinearGradient>
@@ -136,20 +145,19 @@ const ShadowSvg = ({
       {radialShapes()}
     </Svg>
   );
-}
+};
 
 ShadowSvg.propTypes = {
   shadowColor: PropTypes.string.isRequired,
   shadowOffset: PropTypes.shape({
-    width: PropTypes.number, 
-    height: PropTypes.number
+    width: PropTypes.number,
+    height: PropTypes.number,
   }).isRequired,
   shadowOpacity: PropTypes.number.isRequired,
   shadowRadius: PropTypes.number.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
   borderRadius: PropTypes.number.isRequired,
-}
+};
 
 export default ShadowSvg;
-

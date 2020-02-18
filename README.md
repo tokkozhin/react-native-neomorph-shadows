@@ -164,6 +164,20 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
   }}
 />
 ```
+## Animation
+
+```
+import { Animated } from 'react-native';
+import { NeomorphBox, ShadowBox } from 'react-native-neomorph-shadows';
+
+const AnimationNeomorphBox = Animated.createAnimatedComponent(NeomorphBox);
+const AnimationShadowBox = Animated.createAnimatedComponent(ShadowBox);
+
+...
+
+<AnimationNeomorphBox />
+<AnimationShadowBox />
+```
 
 ## Props
 
@@ -189,4 +203,4 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
 
 ## Expo snack example
 
-[https://snack.expo.io/@tokkozhin/clock-|-shadows-and-neomorphism](https://snack.expo.io/@tokkozhin/clock-|-shadows-and-neomorphism)
+[https://snack.expo.io/@tokkozhin/clock---shadows-and-neomorphism](https://snack.expo.io/@tokkozhin/clock---shadows-and-neomorphism)
