@@ -73,6 +73,7 @@ export default class OuterShadowBox extends React.PureComponent {
             shadowOpacity,
             shadowColor,
             shadowOffset,
+            ...otherStyles
           }}
         />
         <View
@@ -90,6 +91,7 @@ export default class OuterShadowBox extends React.PureComponent {
             position: 'absolute',
             top: 0,
             left: 0,
+            ...otherStyles
           }}>
           {children}
         </View>
