@@ -41,6 +41,10 @@ export default class OuterShadowBox extends React.PureComponent {
       shadowOffset = {width: 0, height: 0},
       backgroundColor = 'transparent',
       borderRadius = 0,
+      borderTopRightRadius = 0,
+      borderTopLeftRadius = 0,
+      borderBottomRightRadius = 0,
+      borderBottomLeftRadius = 0,
       ...otherStyles
     } = style;
 
@@ -61,6 +65,10 @@ export default class OuterShadowBox extends React.PureComponent {
             width,
             height,
             borderRadius,
+            borderTopRightRadius,
+            borderTopLeftRadius,
+            borderBottomRightRadius,
+            borderBottomLeftRadius,
             shadowRadius,
             shadowOpacity,
             shadowColor,
@@ -71,10 +79,14 @@ export default class OuterShadowBox extends React.PureComponent {
           // eslint-disable-next-line react-native/no-inline-styles
           style={{
             zIndex: 2,
-            width: width,
-            height: height,
-            borderRadius: borderRadius,
-            backgroundColor: backgroundColor,
+            width,
+            height,
+            borderRadius,
+            backgroundColor,
+            borderTopRightRadius,
+            borderTopLeftRadius,
+            borderBottomRightRadius,
+            borderBottomLeftRadius,
             position: 'absolute',
             top: 0,
             left: 0,
@@ -102,6 +114,10 @@ OuterShadowBox.defaultProps = {
     shadowOpacity: 0,
     shadowRadius: 0,
     borderRadius: 0,
+    borderTopRightRadius: 0,
+    borderTopLeftRadius: 0,
+    borderBottomRightRadius: 0,
+    borderBottomLeftRadius: 0,
     backgroundColor: 'white',
   },
 };
@@ -119,6 +135,10 @@ OuterShadowBox.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     borderRadius: PropTypes.number,
+    borderTopRightRadius: PropTypes.number,
+    borderTopLeftRadius: PropTypes.number,
+    borderBottomRightRadius: PropTypes.number,
+    borderBottomLeftRadius: PropTypes.number,
     backgroundColor: PropTypes.string,
   }),
 };
