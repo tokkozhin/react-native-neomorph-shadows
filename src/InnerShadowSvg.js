@@ -62,24 +62,13 @@ const InnerShadowSvg = ({
   }
   const step = (1 - edge) / easeOpacityRange.length;
 
-  const easeLinearGradient = key => {
+  const easeGradient = key => {
     return [...[0, ...easeOpacityRange, 1].map((rangeValue, i) =>
       <Stop
         offset={`${ i === 0 ? 0 : i === (easeOpacityRange.length + 1) ? 1 : (edge + step * (i - 1)) }`}
         stopColor={shadowColor}
         stopOpacity={`${rangeValue}`}
-        key={key + 'linear_' + i}
-      />
-    )];
-  };
-
-  const easeRadialGradient = (key) => {
-    return [ ...[0, ...easeOpacityRange, 1].map((rangeValue, i) =>
-      <Stop
-        offset={`${ i === 0 ? 0 : i === (easeOpacityRange.length + 1) ? 1 : (edge + step * (i - 1)) }`}
-        stopColor={shadowColor}
-        stopOpacity={`${rangeValue}`}
-        key={key + 'radial_' + i}
+        key={key + i}
       />
     )];
   };
@@ -130,14 +119,14 @@ const InnerShadowSvg = ({
         opacity: s_o,
       }}>
       <Defs>
-        <LinearGradient id="top" x1="0%" x2="0%" y1="100%" y2="0%">{easeLinearGradient('top')}</LinearGradient>
-        <LinearGradient id="bottom" x1="0%" x2="0%" y1="0%" y2="100%">{easeLinearGradient('bottom')}</LinearGradient>
-        <LinearGradient id="left" x1="100%" y1="0%" x2="0%" y2="0%">{easeLinearGradient('left')}</LinearGradient>
-        <LinearGradient id="right" x1="0%" y1="0%" x2="100%" y2="0%" >{easeLinearGradient('right')}</LinearGradient>
-        <RadialGradient id="topLeft" r="100%" cx="100%" cy="100%" fx="100%" fy="100%">{easeRadialGradient('topLeft')}</RadialGradient>
-        <RadialGradient id="topRight" r="100%" cx="0%" cy="100%" fx="0%" fy="100%">{easeRadialGradient('topRight')}</RadialGradient>
-        <RadialGradient id="bottomLeft" r="100%" cx="100%" cy="0%" fx="100%" fy="0%">{easeRadialGradient('bottomLeft')}</RadialGradient>
-        <RadialGradient id="bottomRight" r="100%" cx="0%" cy="0%" fx="0%" fy="0%">{easeRadialGradient('bottomRight')}</RadialGradient>
+        <LinearGradient id="top" x1="0%" x2="0%" y1="100%" y2="0%">{easeGradient('top')}</LinearGradient>
+        <LinearGradient id="bottom" x1="0%" x2="0%" y1="0%" y2="100%">{easeGradient('bottom')}</LinearGradient>
+        <LinearGradient id="left" x1="100%" y1="0%" x2="0%" y2="0%">{easeGradient('left')}</LinearGradient>
+        <LinearGradient id="right" x1="0%" y1="0%" x2="100%" y2="0%" >{easeGradient('right')}</LinearGradient>
+        <RadialGradient id="topLeft" r="100%" cx="100%" cy="100%" fx="100%" fy="100%">{easeGradient('topLeft')}</RadialGradient>
+        <RadialGradient id="topRight" r="100%" cx="0%" cy="100%" fx="0%" fy="100%">{easeGradient('topRight')}</RadialGradient>
+        <RadialGradient id="bottomLeft" r="100%" cx="100%" cy="0%" fx="100%" fy="0%">{easeGradient('bottomLeft')}</RadialGradient>
+        <RadialGradient id="bottomRight" r="100%" cx="0%" cy="0%" fx="0%" fy="0%">{easeGradient('bottomRight')}</RadialGradient>
       </Defs>
       {rectShapes()}
       {radialShapes()}

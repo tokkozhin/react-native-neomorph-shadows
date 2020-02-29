@@ -33,6 +33,10 @@ ShadowBox.propTypes = {
     width: PropTypes.number.isRequired,
     height: PropTypes.number.isRequired,
     borderRadius: PropTypes.number,
+    borderTopRightRadius: PropTypes.number,
+    borderTopLeftRadius: PropTypes.number,
+    borderBottomRightRadius: PropTypes.number,
+    borderBottomLeftRadius: PropTypes.number,
     backgroundColor: PropTypes.string,
   }),
 };
