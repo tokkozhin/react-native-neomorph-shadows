@@ -1,5 +1,8 @@
-[![npm version](https://badge.fury.io/js/react-native-neomorph-shadows.svg)](https://badge.fury.io/js/react-native-neomorph-shadows)
-![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg)
+![npm](https://img.shields.io/npm/v/react-native-neomorph-shadows?style=flat-square)
+![npm](https://img.shields.io/npm/dt/react-native-neomorph-shadows?style=flat-square)
+![github](https://img.shields.io/github/stars/tokkozhin/react-native-neomorph-shadows?style=flat-square)
+![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg?style=flat-square)
+
 # react-native-neomorph-shadows
 Neomorphism UI shadows for iOS &amp; Android, include SVG inner/outer shadow component powered with react-native-svg, which can provide shadow on Android identical like iOS.
 

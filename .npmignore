@@ -10,3 +10,6 @@ tmp
 
 # images
 assets
+
+# VS Code
+.vscode/
