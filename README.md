@@ -77,7 +77,7 @@ import { ShadowBox } from 'react-native-neomorph-shadows';
 
 ### NeomorphBox
 
-Opacity of two shadows automaticly changing and depends of `backgrounColor` brightness.
+Opacity of two shadows automaticly changing and depends of `backgroundColor` brightness.
 
 <p align="center">
   <img src="assets/neomorph.png" height="240">
