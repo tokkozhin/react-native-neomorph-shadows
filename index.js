@@ -1,3 +1,4 @@
-import ShadowBox from './src/ShadowBox';
-import NeomorphBox from './src/NeomorphBox';
-export { ShadowBox, NeomorphBox };
+import Shadow from './src/Shadow';
+import Neomorph from './src/Neomorph';
+import NeomorphBlur from './src/NeomorphBlur';
+export { Shadow, Neomorph, NeomorphBlur };

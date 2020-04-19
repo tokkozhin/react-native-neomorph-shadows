@@ -4,30 +4,38 @@
 ![Supports Android and iOS](https://img.shields.io/badge/platforms-android%20|%20ios-lightgrey.svg?style=flat-square)
 
 # react-native-neomorph-shadows
-Neumorphism UI shadows for iOS &amp; Android, include SVG inner/outer shadow component powered with react-native-svg, which can provide shadow on Android identical like iOS.
 
-<p align="center">
-  <img src="assets/example_shadow.gif" width="355">
-  <img src="assets/example_neomorph.gif" width="355">
-</p>
+Shadows and neumorphism/neomorphism for iOS & Android (like iOS).
+
+[`See example folder`](example)
+
+![Shadows Demo](assets/shadows.gif)
+![Neomorph Demo](assets/neomorph.gif)
+![Neomorph Blur Demo](assets/neomorphblur.gif)
+![More Demo](assets/more.gif)
 
 ## Installation
 
 ### Step 1
+
 Run the command below to install the plugin.
-```
+
+```bash
 npm i react-native-neomorph-shadows
-``` 
+```
 
 ### Step 2
-Install SVG library if not installed in your project [`react-native-svg`](https://github.com/react-native-community/react-native-svg):
+
+You need to install [`React Native Art`]('https://github.com/react-native-community/art') in your project.
+
+```bash
+npm install @react-native-community/art --save
 ```
-npm i react-native-svg
-```
+
 With autolinking (react-native 0.60+)
 
 ```bash
-cd ios && pod install
+cd ios && pod install && cd ..
 ```
 
 Pre 0.60
@@ -35,31 +43,29 @@ Pre 0.60
 ```bash
 react-native link react-native-svg
 ```
+
 Great! Let's start to use it.
 
 ## Usage
 
-There are two components: ShadowBox & NeomorphBox 
-Prop style supports most of the view styles.
+There are three components: Shadow, Neomorph & NeomorphBlur.
+Prop style supports most of the view/layout styles.
 
-**IMPORTANT: ShadowBox & NeomorphBox dont't support `Flex`.**
-### ShadowBox
+**IMPORTANT: Components dont't support `Flex`.**
 
-SVG Shadow works and style props identical like iOS shadow UI
+### Shadow
 
-<p align="center">
-  <img src="assets/shadow.png" height="240">
-  <img src="assets/inner_shadow.png" height="240">
-</p>
+![Outer shadow demo](assets/shadow.png)
+![Inner shadow demo](assets/inner_shadow.png)
 
 ```
-import { ShadowBox } from 'react-native-neomorph-shadows';
+import { Shadow } from 'react-native-neomorph-shadows';
 
 ...
 
-<ShadowBox
+<Shadow
   inner // <- enable inner shadow
-  useSvg // <- set this prop to use svg on ios
+  useArt // <- set this prop to use non-native shadow on ios
   style={{
     shadowOffset: {width: 10, height: 10}
     shadowOpacity: 1,
@@ -69,29 +75,28 @@ import { ShadowBox } from 'react-native-neomorph-shadows';
     backgroundColor: 'white',
     width: 100,
     height: 100,
+    // ...include most of View/Layout styles
   }}
 >
   ...
-</ShadowBox>
+</Shadow>
 ```
 
-### NeomorphBox
+### Neomorph Sahdow
 
 Opacity of two shadows automaticly changing and depends of `backgrounColor` brightness.
 
-<p align="center">
-  <img src="assets/neomorph.png" height="240">
-  <img src="assets/inner_neomorph.png" height="240">
-</p>
+![Outer neomorph shadow demo](assets/neomorph.png)
+![Inner neomorph shadow demo](assets/inner_neomorph.png)
 
 ```
-import { NeomorphBox } from 'react-native-neomorph-shadows';
+import { Neomorph } from 'react-native-neomorph-shadows';
 
 ...
 
-<NeomorphBox
+<Neomorph
   inner // <- enable shadow inside of neomorph
-  swapShadowLevel // <- change zIndex of each shadow color
+  swapShadows // <- change zIndex of each shadow color
   style={{
     shadowRadius: 10,
     borderRadius: 25,
@@ -101,17 +106,15 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
   }}
 >
   ...
-</NeomorphBox>
+</Neomorph>
 ```
 
-### Nested NeomorphBox
+### Nested Neomorph
 
-<p align="center">
-  <img src="assets/neomorph_nested.png" height="250">
-</p>
+![Nested neomorph shadow demo](assets/neomorph_nested.png)
 
 ```
-<NeomorphBox
+<Neomorph
   style={{
     shadowRadius: 3,
     borderRadius: 100,
@@ -122,7 +125,7 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
     alignItems: 'center',
   }}
 >
-  <NeomorphBox 
+  <Neomorph
     inner
     style={{
       shadowRadius: 7,
@@ -134,7 +137,7 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
       alignItems: 'center'
     }}
   >
-    <NeomorphBox 
+    <Neomorph
       style={{
         shadowRadius: 7,
         borderRadius: 50,
@@ -143,22 +146,20 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
         height: 100,
       }}
     />
-  </NeomorphBox>
-</NeomorphBox>
+  </Neomorph>
+</Neomorph>
 ```
 
-### Custom shadows color of NeomorphBox
+### Custom shadow colors of Neomorph
 
-<p align="center">
-  <img src="assets/neomorph_custom_colors.jpg" height="270">
-</p>
+![Custom neomorph shadow demo](assets/neomorph_custom_colors.jpg)
 
 ```
-<NeomorphBox
-  darkShadowColor="#FF3333"    <- set this
-  lightShadowColor="#3344FF"   <- this
+<Neomorph
+  darkShadowColor="#FF3333"   // <- set this
+  lightShadowColor="#3344FF"  // <- this
   style={{
-    shadowOpacity: 0.3,    <- and this or yours opacity
+    shadowOpacity: 0.3,  // <- and this or yours opacity
     shadowRadius: 15,
     borderRadius: 50,
     backgroundColor: '#ECF0F3',
@@ -167,43 +168,60 @@ import { NeomorphBox } from 'react-native-neomorph-shadows';
   }}
 />
 ```
+
+### Neomorph Blur
+
+![Custom neomorph shadow demo](assets/neomorphblur.png)
+
+```
+import { NeomorphBlur } from 'react-native-neomorph-shadows';
+
+<NeomorphBlur
+  style={{
+    shadowRadius: 12,
+    borderRadius: 70,
+    backgroundColor: '#ECF0F3',
+    width: 140,
+    height: 140,
+  }}
+/>
+```
+
 ## Animation
 
 ```
 import { Animated } from 'react-native';
-import { NeomorphBox, ShadowBox } from 'react-native-neomorph-shadows';
+import { Shadow, Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
 
-const AnimationNeomorphBox = Animated.createAnimatedComponent(NeomorphBox);
-const AnimationShadowBox = Animated.createAnimatedComponent(ShadowBox);
+const AnimatedShadow = Animated.createAnimatedComponent(Shadow);
+const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
+const AnimatedNeomorphBlur = Animated.createAnimatedComponent(Neomorph);
 
 ...
 
-<AnimationNeomorphBox />
-<AnimationShadowBox />
+<AnimatedShadow />
+<AnimatedNeomorph />
+<AnimatedNeomorphBlur />
 ```
 
 ## Props
 
-### ShadowBox props
+### Shadow props
 
-| Prop | Required | Type | Default | Description | 
-| ---- | -------- | ---- | ------- | ----------- |
-| style | false | object | {<br>shadowColor: 'black',<br>shadowOffset: {width: 0, height: 0},<br> shadowOpacity: 0,<br>shadowRadius: 0,<br>backgroundColor: 'white'<br>} | Like View`s style prop with a few difference. **Flex** not available. **width** & **height** is required. |  | 
-| useSvg | false | bool | false | If **true**, the component will use svg shadow on both platform (iOS, Android)|
-| inner | false | bool | false | If **true**, a shadow will be inside of component |
-| children | false | node | undefined |  |
+| Prop     | Type   | Default   | Description                                                                                                    |
+| -------- | ------ | --------- | -------------------------------------------------------------------------------------------------------------- |
+| style    | object | undefined | Like View/Layout style prop with a few difference. **Flex** not available. **width** & **height** is required. |  |
+| useArt   | bool   | false     | If **true**, the component will use drawable shadow on both platform (iOS, Android)                            |
+| inner    | bool   | false     | If **true**, a shadow will be inside of component                                                              |
+| children | node   | undefined |                                                                                                                |
 
-### NeomorphBox props
+### Neomorph props
 
-| Prop | Required | Type | Default | Description | 
-| ---- | -------- | ---- | ------- | ----------- |
-| style | false | object | {<br>shadowColor: 'black',<br>shadowOffset: {width: 0, height: 0},<br> shadowOpacity: 0,<br>shadowRadius: 0,<br>backgroundColor: 'white'<br>} | Like View`s style prop with a few difference. **Flex** not available. **width** & **height** is required. |  | 
-| swapShadowLevel | false | bool | false | If **true**, the value of `zIndex` property both shadows will swap|
-| inner | false | bool | false | If **true**, shadows will be inside of component |
-| darkShadowColor | false | string | 'black' | Dark shadow color |
-| lightShadowColor | false | string | 'white' | Light shadow color |
-| children | false | node | undefined |  |
-
-## Expo snack example
-
-[https://snack.expo.io/@tokkozhin/clock---shadows-and-neomorphism](https://snack.expo.io/@tokkozhin/clock---shadows-and-neomorphism)
+| Prop             | Type   | Default   | Description                                                                                                    |
+| ---------------- | ------ | --------- | -------------------------------------------------------------------------------------------------------------- |
+| style            | object | undefined | Like View/Layout style prop with a few difference. **Flex** not available. **width** & **height** is required. |  |
+| swapShadows      | bool   | false     | If **true**, the value of `zIndex` property both shadows will swap                                             |
+| inner            | bool   | false     | If **true**, shadows will be inside of component                                                               |
+| darkShadowColor  | string | 'black'   | Dark shadow color                                                                                              |
+| lightShadowColor | string | 'white'   | Light shadow color                                                                                             |
+| children         | node   | undefined |                                                                                                                |

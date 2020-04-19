@@ -11,5 +11,8 @@ tmp
 # images
 assets
 
+# examples
+example
+
 # VS Code
 .vscode/
