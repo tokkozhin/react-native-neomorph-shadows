@@ -82,7 +82,7 @@ import { Shadow } from 'react-native-neomorph-shadows';
 </Shadow>
 ```
 
-### Neomorph Sahdow
+### Neomorph Shadow
 
 Opacity of two shadows automaticly changing and depends of `backgroundColor` brightness.
 
