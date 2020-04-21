@@ -9,10 +9,10 @@ Shadows and neumorphism/neomorphism for iOS & Android (like iOS).
 
 [`See example folder`](example)
 
-![Shadows Demo](assets/shadows.gif)
-![Neomorph Demo](assets/neomorph.gif)
-![Neomorph Blur Demo](assets/neomorphblur.gif)
-![More Demo](assets/more.gif)
+![Shadows Demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/shadows.gif)
+![Neomorph Demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph.gif)
+![Neomorph Blur Demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorphblur.gif)
+![More Demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/more.gif)
 
 ## Installation
 
@@ -55,8 +55,8 @@ Prop style supports most of the view/layout styles.
 
 ### Shadow
 
-![Outer shadow demo](assets/shadow.png)
-![Inner shadow demo](assets/inner_shadow.png)
+![Outer shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/shadow.png)
+![Inner shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/inner_shadow.png)
 
 ```
 import { Shadow } from 'react-native-neomorph-shadows';
@@ -86,8 +86,8 @@ import { Shadow } from 'react-native-neomorph-shadows';
 
 Opacity of two shadows automaticly changing and depends of `backgroundColor` brightness.
 
-![Outer neomorph shadow demo](assets/neomorph.png)
-![Inner neomorph shadow demo](assets/inner_neomorph.png)
+![Outer neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph.png)
+![Inner neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/inner_neomorph.png)
 
 ```
 import { Neomorph } from 'react-native-neomorph-shadows';
@@ -111,7 +111,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ### Nested Neomorph
 
-![Nested neomorph shadow demo](assets/neomorph_nested.png)
+![Nested neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph_nested.png)
 
 ```
 <Neomorph
@@ -152,7 +152,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ### Custom shadow colors of Neomorph
 
-![Custom neomorph shadow demo](assets/neomorph_custom_colors.jpg)
+![Custom neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph_custom_colors.jpg)
 
 ```
 <Neomorph
@@ -171,7 +171,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ### Neomorph Blur
 
-![Custom neomorph shadow demo](assets/neomorphblur.png)
+![Custom neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorphblur.png)
 
 ```
 import { NeomorphBlur } from 'react-native-neomorph-shadows';
