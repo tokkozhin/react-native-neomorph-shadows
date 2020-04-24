@@ -58,7 +58,7 @@ Prop style supports most of the view/layout styles.
 ![Outer shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/shadow.png)
 ![Inner shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/inner_shadow.png)
 
-```
+```jsx
 import { Shadow } from 'react-native-neomorph-shadows';
 
 ...
@@ -67,7 +67,7 @@ import { Shadow } from 'react-native-neomorph-shadows';
   inner // <- enable inner shadow
   useArt // <- set this prop to use non-native shadow on ios
   style={{
-    shadowOffset: {width: 10, height: 10}
+    shadowOffset: {width: 10, height: 10},
     shadowOpacity: 1,
     shadowColor: "grey",
     shadowRadius: 10,
@@ -89,7 +89,7 @@ Opacity of two shadows automaticly changing and depends of `backgroundColor` bri
 ![Outer neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph.png)
 ![Inner neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/inner_neomorph.png)
 
-```
+```jsx
 import { Neomorph } from 'react-native-neomorph-shadows';
 
 ...
@@ -113,7 +113,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ![Nested neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph_nested.png)
 
-```
+```jsx
 <Neomorph
   style={{
     shadowRadius: 3,
@@ -154,7 +154,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ![Custom neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorph_custom_colors.jpg)
 
-```
+```jsx
 <Neomorph
   darkShadowColor="#FF3333"   // <- set this
   lightShadowColor="#3344FF"  // <- this
@@ -173,7 +173,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ![Custom neomorph shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/neomorphblur.png)
 
-```
+```jsx
 import { NeomorphBlur } from 'react-native-neomorph-shadows';
 
 <NeomorphBlur
@@ -189,7 +189,7 @@ import { NeomorphBlur } from 'react-native-neomorph-shadows';
 
 ## Animation
 
-```
+```jsx
 import { Animated } from 'react-native';
 import { Shadow, Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
 
