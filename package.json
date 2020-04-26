@@ -1,6 +1,6 @@
 {
   "name": "react-native-neomorph-shadows",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Shadows and neumorphism/neomorphism UI for iOS & Android (like iOS).",
   "main": "index.js",
   "scripts": {
