@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, View, ViewPropTypes } from 'react-native';
+import { StyleSheet, View, ViewPropTypes, Platform } from 'react-native';
 import {
   transformStyleProps,
   brightnessToOpacity,
@@ -92,7 +92,7 @@ export default class Neomorph extends React.PureComponent {
     }
 
     const renderOuter = () => {
-      if (useArt) {
+      if (useArt || Platform.OS !== 'ios') {
         return (
           <>
             <OuterShadowART {...styleDark} />
