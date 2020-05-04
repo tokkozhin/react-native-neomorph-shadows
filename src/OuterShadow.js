@@ -21,7 +21,7 @@ export default class OuterShadow extends React.PureComponent {
 
   renderArt() {
     const { style, children, ...containerProps } = this.props;
-    let {
+    const {
       outsideViewStyle,
       insideViewStyle,
       allShadowProps,
