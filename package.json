@@ -6,6 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "release": {
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      [
+        "@semantic-release/npm",
+        {
+          "npmPublish": false
+        }
+      ],
+      "@semantic-release/github"
+    ]
+  },
   "dependencies": {
     "@react-native-community/art": "^1.2.0",
     "prop-types": "^15.7.2"
@@ -45,5 +58,18 @@
   "bugs": {
     "url": "https://github.com/tokkozhin/react-native-neomorph-shadows/issues"
   },
-  "homepage": "https://github.com/tokkozhin/react-native-neomorph-shadows#readme"
+  "homepage": "https://github.com/tokkozhin/react-native-neomorph-shadows#readme",
+  "devDependencies": {
+    "@commitlint/cli": "^8.3.5",
+    "@commitlint/config-conventional": "^8.3.4",
+    "commitizen": "^4.0.5",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "semantic-release": "^17.0.7"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
