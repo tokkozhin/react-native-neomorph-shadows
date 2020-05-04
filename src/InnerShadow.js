@@ -7,7 +7,7 @@ import { transformStyleProps } from './helpers';
 export default class InnerShadow extends React.PureComponent {
   render() {
     const { style, children, ...containerProps } = this.props;
-    let {
+    const {
       outsideViewStyle,
       insideViewStyle,
       allShadowProps,
