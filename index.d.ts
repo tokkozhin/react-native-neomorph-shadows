@@ -23,7 +23,7 @@ declare module 'react-native-neomorph-shadows' {
   type ViewStyleWithoutFlex = Pick<
     ViewStyle,
     Exclude<keyof ViewStyle, FlexStyleProperties>
-    >;
+  >;
 
   interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
     shadowOffset?: {
