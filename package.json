@@ -45,5 +45,9 @@
   "bugs": {
     "url": "https://github.com/tokkozhin/react-native-neomorph-shadows/issues"
   },
-  "homepage": "https://github.com/tokkozhin/react-native-neomorph-shadows#readme"
+  "homepage": "https://github.com/tokkozhin/react-native-neomorph-shadows#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.34",
+    "@types/react-native": "^0.62.7"
+  }
 }
