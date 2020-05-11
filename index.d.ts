@@ -7,12 +7,7 @@ declare module 'react-native-neomorph-shadows' {
    */
   type FlexStyleProperties =
     | 'flex'
-    | 'flexDirection'
     | 'alignSelf'
-    | 'alignItems'
-    | 'alignContent'
-    | 'justifyContent'
-    | 'flexWrap'
     | 'flexGrow'
     | 'flexShrink'
     | 'flexBasis';
