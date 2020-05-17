@@ -44,7 +44,7 @@ cd ios && pod install && cd ..
 Pre 0.60
 
 ```bash
-react-native link react-native-svg
+react-native link @react-native-community/art
 ```
 
 Great! Let's start to use it.
