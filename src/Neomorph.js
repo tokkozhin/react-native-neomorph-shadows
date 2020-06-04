@@ -1,15 +1,15 @@
 /* eslint-disable react-native/no-inline-styles */
-import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, View, ViewPropTypes, Platform } from 'react-native';
+import React from "react";
+import PropTypes from "prop-types";
+import { StyleSheet, View, ViewPropTypes, Platform } from "react-native";
 import {
   transformStyleProps,
   brightnessToOpacity,
   brightness,
   calcOpacityFromRange,
-} from './helpers';
-import InnerShadowART from './InnerShadowART';
-import OuterShadowART from './OuterShadowART';
+} from "./helpers";
+import InnerShadowART from "./InnerShadowART";
+import OuterShadowART from "./OuterShadowART";
 
 export default class Neomorph extends React.PureComponent {
   render() {
@@ -30,6 +30,10 @@ export default class Neomorph extends React.PureComponent {
         width,
         height,
         borderRadius,
+        borderTopStartRadius,
+        borderTopEndRadius,
+        borderBottomStartRadius,
+        borderBottomEndRadius,
         backgroundColor,
         shadowOpacity,
         shadowOffset,
@@ -50,12 +54,20 @@ export default class Neomorph extends React.PureComponent {
       backgroundColor,
       shadowRadius,
       borderRadius,
+      borderTopStartRadius,
+      borderTopEndRadius,
+      borderBottomStartRadius,
+      borderBottomEndRadius,
       width,
       height,
     };
 
     const viewStyle = {
       borderRadius,
+      borderTopStartRadius,
+      borderTopEndRadius,
+      borderBottomStartRadius,
+      borderBottomEndRadius,
       width,
       height,
     };
@@ -72,7 +84,7 @@ export default class Neomorph extends React.PureComponent {
       ...styleAll,
       shadowOffset: _shadowOffset,
       shadowOpacity: shadowRadius ? shOpacityDark : 0,
-      shadowColor: darkShadowColor || 'black',
+      shadowColor: darkShadowColor || "black",
     };
 
     let styleLight = {
@@ -82,7 +94,7 @@ export default class Neomorph extends React.PureComponent {
         y: -_shadowOffset.y,
       },
       shadowOpacity: shadowRadius ? shOpacityLight : 0,
-      shadowColor: lightShadowColor || 'white',
+      shadowColor: lightShadowColor || "white",
     };
 
     if (swapShadows) {
@@ -92,7 +104,7 @@ export default class Neomorph extends React.PureComponent {
     }
 
     const renderOuter = () => {
-      if (useArt || Platform.OS !== 'ios') {
+      if (useArt || Platform.OS !== "ios") {
         return (
           <>
             <OuterShadowART {...styleDark} />
@@ -115,7 +127,7 @@ export default class Neomorph extends React.PureComponent {
               style={[
                 styleDark,
                 {
-                  position: 'absolute',
+                  position: "absolute",
                   shadowRadius: shadowRadiusOuter,
                   shadowOffset: shadowOffsetDark,
                 },
@@ -125,7 +137,7 @@ export default class Neomorph extends React.PureComponent {
               style={[
                 styleLight,
                 {
-                  position: 'absolute',
+                  position: "absolute",
                   shadowRadius: shadowRadiusOuter,
                   shadowOffset: shadowOffsetLight,
                 },
@@ -144,7 +156,8 @@ export default class Neomorph extends React.PureComponent {
             ...viewStyle,
             ...outsideViewStyle,
           }}
-          {...otherProps}>
+          {...otherProps}
+        >
           <View style={[styles.containerInnerLayers, viewStyle]}>
             <InnerShadowART {...styleDark} />
             <InnerShadowART {...styleLight} />
@@ -161,7 +174,8 @@ export default class Neomorph extends React.PureComponent {
               backgroundColor,
               ...viewStyle,
               ...insideViewStyle,
-            }}>
+            }}
+          >
             {children}
           </View>
         </View>
@@ -172,16 +186,16 @@ export default class Neomorph extends React.PureComponent {
 
 const styles = StyleSheet.create({
   containerInnerLayers: {
-    overflow: 'hidden',
-    position: 'absolute',
+    overflow: "hidden",
+    position: "absolute",
   },
 });
 
 Neomorph.defaultProps = {
   inner: false,
   useArt: false,
-  darkShadowColor: 'black',
-  lightShadowColor: 'white',
+  darkShadowColor: "black",
+  lightShadowColor: "white",
   swapShadows: false,
 };
 Neomorph.propTypes = {

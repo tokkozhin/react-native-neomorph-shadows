@@ -1,5 +1,5 @@
 /* eslint-disable no-bitwise */
-import { Platform, StyleSheet } from 'react-native';
+import { Platform, StyleSheet } from "react-native";
 
 export function getPathWithRadius(width, height, borderRadius) {
   if (borderRadius) {
@@ -10,9 +10,9 @@ export function getPathWithRadius(width, height, borderRadius) {
     const ABottomLeft = `${APrefix} 0,${height - borderRadius}`;
     return `M 0,${borderRadius} ${ATopLeft} H ${
       width - borderRadius
-      } ${ATopRight} V ${
+    } ${ATopRight} V ${
       height - borderRadius
-      } ${ABottomRight} H ${borderRadius} ${ABottomLeft} Z`;
+    } ${ABottomRight} H ${borderRadius} ${ABottomLeft} Z`;
   } else {
     return `M 0,0 H ${width} V ${height} H 0 Z`;
   }
@@ -20,7 +20,7 @@ export function getPathWithRadius(width, height, borderRadius) {
 
 export function transformShadowPropsForAndroid(props) {
   const shadowProps = { ...props };
-  if (Platform.OS === 'android') {
+  if (Platform.OS === "android") {
     shadowProps.shadowRadius = props.shadowRadius * 2;
     shadowProps.shadowOffset.x = props.shadowOffset.x * 3;
     shadowProps.shadowOffset.y = props.shadowOffset.y * 3;
@@ -115,6 +115,18 @@ export function transformStyleProps(styleProps, neomorph) {
   if (borderRadius > height / 2) {
     borderRadius = height / 2;
   }
+  if (borderTopStartRadius > height / 2) {
+    borderTopStartRadius = height / 2;
+  }
+  if (borderTopEndRadius > height / 2) {
+    borderTopEndRadius = height / 2;
+  }
+  if (borderBottomStartRadius > height / 2) {
+    borderBottomStartRadius = height / 2;
+  }
+  if (borderBottomEndRadius > height / 2) {
+    borderBottomEndRadius = height / 2;
+  }
   return {
     outsideViewStyle,
     insideViewStyle,
@@ -122,8 +134,14 @@ export function transformStyleProps(styleProps, neomorph) {
       width,
       height,
       borderRadius: borderRadius < 0 ? 0 : borderRadius,
+      borderTopStartRadius: borderTopStartRadius < 0 ? 0 : borderTopStartRadius,
+      borderTopEndRadius: borderTopEndRadius < 0 ? 0 : borderTopEndRadius,
+      borderBottomStartRadius:
+        borderBottomStartRadius < 0 ? 0 : borderBottomStartRadius,
+      borderBottomEndRadius:
+        borderBottomEndRadius < 0 ? 0 : borderBottomEndRadius,
       backgroundColor:
-        backgroundColor === 'transparent' ? '#00000000' : backgroundColor,
+        backgroundColor === "transparent" ? "#00000000" : backgroundColor,
       shadowOpacity,
       shadowOffset: { x: shadowOffset.width, y: shadowOffset.height },
       shadowRadius: shadowRadius ? shadowRadius * 2 : 0.1,
@@ -137,13 +155,13 @@ export function brightness(color) {
   let r, g, b, hsp;
   if (color.match(/^rgb/)) {
     color = color.match(
-      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/,
+      /^rgba?\((\d+),\s*(\d+),\s*(\d+)(?:,\s*(\d+(?:\.\d+)?))?\)$/
     );
     r = color[1];
     g = color[2];
     b = color[3];
   } else {
-    color = +('0x' + color.slice(1).replace(color.length < 5 && /./g, '$&$&'));
+    color = +("0x" + color.slice(1).replace(color.length < 5 && /./g, "$&$&"));
     r = color >> 16;
     g = (color >> 8) & 255;
     b = color & 255;
