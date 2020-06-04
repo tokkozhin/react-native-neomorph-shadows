@@ -10,6 +10,24 @@ export function getPathWithRadius(
   borderBottomStartRadius,
   borderBottomEndRadius
 ) {
+  if (borderTopStartRadius && borderBottomStartRadius) {
+    let APrefix = `A ${borderTopStartRadius}, ${borderTopStartRadius}, 0 0 1`;
+    const ATopLeft = `${APrefix} ${borderTopStartRadius},0`;
+    APrefix = `A ${borderBottomStartRadius}, ${borderBottomStartRadius}, 0 0 1`;
+    const ABottomLeft = `${APrefix} 0,${height - borderBottomStartRadius}`;
+    return `M 0,${borderTopStartRadius} ${ATopLeft} H ${width} V ${height} H ${borderBottomStartRadius} ${ABottomLeft} Z`;
+  }
+  if (borderTopEndRadius && borderBottomEndRadius) {
+    let APrefix = `A ${borderTopEndRadius}, ${borderTopEndRadius}, 0 0 1`;
+    const ATopRight = `${APrefix} ${width},${borderTopEndRadius}`;
+    APrefix = `A ${borderBottomEndRadius}, ${borderBottomEndRadius}, 0 0 1`;
+    const ABottomRight = `${APrefix} ${
+      width - borderBottomEndRadius
+    },${height}`;
+    return `M 0,0 H ${width - borderTopEndRadius} ${ATopRight} V ${
+      height - borderBottomEndRadius
+    } ${ABottomRight} H 0 Z`;
+  }
   if (borderTopStartRadius) {
     const APrefix = `A ${borderTopStartRadius}, ${borderTopStartRadius}, 0 0 1`;
     const ATopLeft = `${APrefix} ${borderTopStartRadius},0`;
@@ -18,7 +36,9 @@ export function getPathWithRadius(
   if (borderTopEndRadius) {
     const APrefix = `A ${borderTopEndRadius}, ${borderTopEndRadius}, 0 0 1`;
     const ATopRight = `${APrefix} ${width},${borderTopEndRadius}`;
-    return `M 0,0 H ${width - borderRadius} ${ATopRight} V ${height}  H 0 Z`;
+    return `M 0,0 H ${
+      width - borderTopEndRadius
+    } ${ATopRight} V ${height}  H 0 Z`;
   }
   if (borderBottomStartRadius) {
     const APrefix = `A ${borderBottomStartRadius}, ${borderBottomStartRadius}, 0 0 1`;
@@ -30,8 +50,8 @@ export function getPathWithRadius(
     const ABottomRight = `${APrefix} ${
       width - borderBottomEndRadius
     },${height}`;
-    return `M 0,0  H ${width}  V ${
-      height - borderRadius
+    return `M 0,0  H ${width} V ${
+      height - borderBottomEndRadius
     } ${ABottomRight} H 0 Z`;
   }
   if (borderRadius) {
