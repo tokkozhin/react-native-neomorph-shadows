@@ -1,7 +1,39 @@
 /* eslint-disable no-bitwise */
 import { Platform, StyleSheet } from "react-native";
 
-export function getPathWithRadius(width, height, borderRadius) {
+export function getPathWithRadius(
+  width,
+  height,
+  borderRadius,
+  borderTopStartRadius,
+  borderTopEndRadius,
+  borderBottomStartRadius,
+  borderBottomEndRadius
+) {
+  if (borderTopStartRadius) {
+    const APrefix = `A ${borderTopStartRadius}, ${borderTopStartRadius}, 0 0 1`;
+    const ATopLeft = `${APrefix} ${borderTopStartRadius},0`;
+    return `M 0,${borderTopStartRadius} ${ATopLeft} H ${width} V ${height} H 0 Z`;
+  }
+  if (borderTopEndRadius) {
+    const APrefix = `A ${borderTopEndRadius}, ${borderTopEndRadius}, 0 0 1`;
+    const ATopRight = `${APrefix} ${width},${borderTopEndRadius}`;
+    return `M 0,0 H ${width - borderRadius} ${ATopRight} V ${height}  H 0 Z`;
+  }
+  if (borderBottomStartRadius) {
+    const APrefix = `A ${borderBottomStartRadius}, ${borderBottomStartRadius}, 0 0 1`;
+    const ABottomLeft = `${APrefix} 0,${height - borderBottomStartRadius}`;
+    return `M 0,0  H ${width}  V ${height} H ${borderBottomStartRadius} ${ABottomLeft} Z`;
+  }
+  if (borderBottomEndRadius) {
+    const APrefix = `A ${borderBottomEndRadius}, ${borderBottomEndRadius}, 0 0 1`;
+    const ABottomRight = `${APrefix} ${
+      width - borderBottomEndRadius
+    },${height}`;
+    return `M 0,0  H ${width}  V ${
+      height - borderRadius
+    } ${ABottomRight} H 0 Z`;
+  }
   if (borderRadius) {
     const APrefix = `A ${borderRadius}, ${borderRadius}, 0 0 1`;
     const ATopLeft = `${APrefix} ${borderRadius},0`;
