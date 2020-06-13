@@ -16,6 +16,9 @@ Shadows and neumorphism/neomorphism for iOS & Android (like iOS).
 
 ## Installation
 
+IMPORTANT: 
+this library, starting from v1.0.0, no longer supports expo because [`React Native Art`]('https://github.com/react-native-community/art') library was recently deprecated from expo.
+
 ### Step 1
 
 Run the command below to install the plugin.
@@ -41,7 +44,7 @@ cd ios && pod install && cd ..
 Pre 0.60
 
 ```bash
-react-native link react-native-svg
+react-native link @react-native-community/art
 ```
 
 Great! Let's start to use it.
