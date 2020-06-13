@@ -31,7 +31,9 @@ export default class OuterShadow extends React.PureComponent {
 
     return (
       <View style={{ ...viewStyle, ...outsideViewStyle }} {...containerProps}>
-        <OuterShadowART {...allShadowProps} />
+        <View pointerEvents={'none'}>
+          <OuterShadowART {...allShadowProps} />
+        </View>
         <View style={{ ...viewStyle, ...insideViewStyle }}>{children}</View>
       </View>
     );

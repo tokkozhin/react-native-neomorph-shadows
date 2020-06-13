@@ -94,10 +94,10 @@ export default class Neomorph extends React.PureComponent {
     const renderOuter = () => {
       if (useArt || Platform.OS !== 'ios') {
         return (
-          <>
+          <View pointerEvents={'none'}>
             <OuterShadowART {...styleDark} />
             <OuterShadowART {...styleLight} />
-          </>
+          </View>
         );
       } else {
         const shadowOffsetDark = {
