@@ -16,7 +16,7 @@ Shadows and neumorphism/neomorphism for iOS & Android (like iOS).
 
 ## Installation
 
-IMPORTANT: 
+IMPORTANT:
 this library, starting from v1.0.0, no longer supports expo because [`React Native Art`]('https://github.com/react-native-community/art') library was recently deprecated from expo.
 
 ### Step 1
@@ -51,12 +51,14 @@ Great! Let's start to use it.
 
 ## Usage
 
-There are three components: Shadow, Neomorph & NeomorphBlur.
+There are three components: **Shadow**, **Neomorph** & **NeomorphBlur**.
 Prop style supports most of the view/layout styles.
 
 **IMPORTANT: Components dont't support `Flex`.**
 
-### Shadow
+If you want flex and auto sizing of Shadow or Neomorph components, use **ShadowFlex/NeomorphFlex** experimental components, but be careful, these components reduce performance by double rerender. If you know exactly what size(width, height props) it should be, use **Shadow/Neomorph** components.
+
+### Shadow / ShadowFlex
 
 ![Outer shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/shadow.png)
 ![Inner shadow demo](https://raw.githubusercontent.com/tokkozhin/react-native-neomorph-shadows/master/assets/inner_shadow.png)
@@ -85,7 +87,7 @@ import { Shadow } from 'react-native-neomorph-shadows';
 </Shadow>
 ```
 
-### Neomorph Shadow
+### Neomorph / NeomorphFlex
 
 Opacity of two shadows automaticly changing and depends of `backgroundColor` brightness.
 
@@ -137,7 +139,7 @@ import { Neomorph } from 'react-native-neomorph-shadows';
       width: 180,
       height: 180,
       justifyContent: 'center',
-      alignItems: 'center'
+      alignItems: 'center',
     }}
   >
     <Neomorph
@@ -159,10 +161,10 @@ import { Neomorph } from 'react-native-neomorph-shadows';
 
 ```jsx
 <Neomorph
-  darkShadowColor="#FF3333"   // <- set this
-  lightShadowColor="#3344FF"  // <- this
+  darkShadowColor="#FF3333" // <- set this
+  lightShadowColor="#3344FF" // <- this
   style={{
-    shadowOpacity: 0.3,  // <- and this or yours opacity
+    shadowOpacity: 0.3, // <- and this or yours opacity
     shadowRadius: 15,
     borderRadius: 50,
     backgroundColor: '#ECF0F3',
@@ -187,7 +189,7 @@ import { NeomorphBlur } from 'react-native-neomorph-shadows';
     width: 140,
     height: 140,
   }}
-/>
+/>;
 ```
 
 ## Animation
@@ -209,22 +211,22 @@ const AnimatedNeomorphBlur = Animated.createAnimatedComponent(Neomorph);
 
 ## Props
 
-### Shadow props
+### Shadow/ShadowFlex props
 
-| Prop     | Type   | Default   | Description                                                                                                    |
-| -------- | ------ | --------- | -------------------------------------------------------------------------------------------------------------- |
-| style    | object | undefined | Like View/Layout style prop with a few difference. **Flex** not available. **width** & **height** is required. |  |
-| useArt   | bool   | false     | If **true**, the component will use drawable shadow on both platform (iOS, Android)                            |
-| inner    | bool   | false     | If **true**, a shadow will be inside of component                                                              |
-| children | node   | undefined |                                                                                                                |
+| Prop     | Type   | Default   | Description                                                                                                                                               |
+| -------- | ------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| style    | object | undefined | Like View/Layout style prop with a few difference. **Flex** not available. **width** & **height** is required. (None of this is about the **ShadowFlex**) |  |
+| useArt   | bool   | false     | If **true**, the component will use drawable shadow on both platform (iOS, Android)                                                                       |
+| inner    | bool   | false     | If **true**, a shadow will be inside of component                                                                                                         |
+| children | node   | undefined |                                                                                                                                                           |
 
-### Neomorph props
+### Neomorph/NeomorphFlex props
 
-| Prop             | Type   | Default   | Description                                                                                                    |
-| ---------------- | ------ | --------- | -------------------------------------------------------------------------------------------------------------- |
-| style            | object | undefined | Like View/Layout style prop with a few difference. **Flex** not available. **width** & **height** is required. |  |
-| swapShadows      | bool   | false     | If **true**, the value of `zIndex` property both shadows will swap                                             |
-| inner            | bool   | false     | If **true**, shadows will be inside of component                                                               |
-| darkShadowColor  | string | 'black'   | Dark shadow color                                                                                              |
-| lightShadowColor | string | 'white'   | Light shadow color                                                                                             |
-| children         | node   | undefined |                                                                                                                |
+| Prop             | Type   | Default   | Description                                                                                                                                                 |
+| ---------------- | ------ | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| style            | object | undefined | Like View/Layout style prop with a few difference. **Flex** not available. **width** & **height** is required. (None of this is about the **NeomorphFlex**) |  |
+| swapShadows      | bool   | false     | If **true**, the value of `zIndex` property both shadows will swap                                                                                          |
+| inner            | bool   | false     | If **true**, shadows will be inside of component                                                                                                            |
+| darkShadowColor  | string | 'black'   | Dark shadow color                                                                                                                                           |
+| lightShadowColor | string | 'white'   | Light shadow color                                                                                                                                          |
+| children         | node   | undefined |                                                                                                                                                             |
