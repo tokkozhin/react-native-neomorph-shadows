@@ -48,7 +48,12 @@ declare module 'react-native-neomorph-shadows' {
     style?: ViewStyleWithShadow;
   }
 
+  interface ShadowFlexProps extends ShadowProps {
+    style?: ViewStyle;
+  }
+
   const Shadow: React.FC<ShadowProps>;
+  const ShadowFlex: React.FC<ShadowFlexProps>;
 
   interface NeomorphProps extends ViewProps {
     inner?: boolean;
@@ -58,7 +63,12 @@ declare module 'react-native-neomorph-shadows' {
     darkShadowColor?: string;
   }
 
+  interface NeomorphFlexProps extends NeomorphProps {
+    style?: ViewStyle;
+  }
+
   const Neomorph: React.FC<NeomorphProps>;
+  const NeomorphFlex: React.FC<NeomorphFlexProps>;
 
   interface NeomorphBlurProps extends ViewProps {
     inner?: boolean;
@@ -68,5 +78,5 @@ declare module 'react-native-neomorph-shadows' {
 
   const NeomorphBlur: React.FC<NeomorphBlurProps>;
 
-  export { Shadow, Neomorph, NeomorphBlur };
+  export { Shadow, ShadowFlex, Neomorph, NeomorphFlex, NeomorphBlur };
 }
