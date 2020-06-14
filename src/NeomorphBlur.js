@@ -1,6 +1,5 @@
 import React from 'react';
-import { ViewPropTypes } from 'react-native';
-import PropTypes from 'prop-types';
+import { NeomorphType } from './types';
 import Neomorph from './Neomorph';
 
 export default class NeomorphBlur extends React.PureComponent {
@@ -34,14 +33,4 @@ export default class NeomorphBlur extends React.PureComponent {
   }
 }
 
-NeomorphBlur.propTypes = {
-  ...ViewPropTypes,
-  inner: PropTypes.bool,
-  useArt: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.shape({
-    ...ViewPropTypes.style,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-  }),
-};
+NeomorphBlur.propTypes = NeomorphType;

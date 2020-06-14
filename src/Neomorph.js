@@ -1,7 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, View, ViewPropTypes, Platform } from 'react-native';
+import { NeomorphType } from './types';
+import { StyleSheet, View, Platform } from 'react-native';
 import {
   transformStyleProps,
   brightnessToOpacity,
@@ -184,17 +184,4 @@ Neomorph.defaultProps = {
   lightShadowColor: 'white',
   swapShadows: false,
 };
-Neomorph.propTypes = {
-  ...ViewPropTypes,
-  inner: PropTypes.bool,
-  useArt: PropTypes.bool,
-  darkShadowColor: PropTypes.string,
-  lightShadowColor: PropTypes.string,
-  swapShadows: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.shape({
-    ...ViewPropTypes.style,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-  }),
-};
+Neomorph.propTypes = NeomorphType;

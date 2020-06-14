@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, ViewPropTypes } from 'react-native';
+import { NeomorphFlexType } from './types';
+import { View } from 'react-native';
 import Neomorph from './Neomorph';
 
 export default class NeomorphFlex extends React.PureComponent {
@@ -56,12 +56,4 @@ export default class NeomorphFlex extends React.PureComponent {
   }
 }
 
-NeomorphFlex.propTypes = {
-  ...ViewPropTypes,
-  inner: PropTypes.bool,
-  useArt: PropTypes.bool,
-  darkShadowColor: PropTypes.string,
-  lightShadowColor: PropTypes.string,
-  swapShadows: PropTypes.bool,
-  children: PropTypes.node,
-};
+NeomorphFlex.propTypes = NeomorphFlexType;

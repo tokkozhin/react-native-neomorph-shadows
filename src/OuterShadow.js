@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, Platform, ViewPropTypes } from 'react-native';
+import { OuterShadowType } from './types';
+import { View, Platform } from 'react-native';
 import OuterShadowART from './OuterShadowART';
 import { transformStyleProps } from './helpers';
 
@@ -50,14 +50,4 @@ OuterShadow.defaultProps = {
   inner: false,
   useArt: false,
 };
-OuterShadow.propTypes = {
-  ...ViewPropTypes,
-  inner: PropTypes.bool,
-  useArt: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.shape({
-    ...ViewPropTypes.style,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-  }),
-};
+OuterShadow.propTypes = OuterShadowType;

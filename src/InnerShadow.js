@@ -1,8 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { StyleSheet, View, ViewPropTypes } from 'react-native';
+import { InnerShadowType } from './types';
+import { StyleSheet, View } from 'react-native';
 import InnerShadowART from './InnerShadowART';
 import { transformStyleProps } from './helpers';
+
 
 export default class InnerShadow extends React.PureComponent {
   render() {
@@ -34,12 +35,4 @@ const styles = StyleSheet.create({
   },
 });
 
-InnerShadow.propTypes = {
-  ...ViewPropTypes,
-  children: PropTypes.node,
-  style: PropTypes.shape({
-    ...ViewPropTypes.style,
-    width: PropTypes.number.isRequired,
-    height: PropTypes.number.isRequired,
-  }),
-};
+InnerShadow.propTypes = InnerShadowType;
