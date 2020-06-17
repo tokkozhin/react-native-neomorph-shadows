@@ -200,7 +200,7 @@ import { Shadow, Neomorph, NeomorphBlur } from 'react-native-neomorph-shadows';
 
 const AnimatedShadow = Animated.createAnimatedComponent(Shadow);
 const AnimatedNeomorph = Animated.createAnimatedComponent(Neomorph);
-const AnimatedNeomorphBlur = Animated.createAnimatedComponent(Neomorph);
+const AnimatedNeomorphBlur = Animated.createAnimatedComponent(NeomorphBlur);
 
 ...
 
