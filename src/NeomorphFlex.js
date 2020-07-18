@@ -24,7 +24,6 @@ export default class NeomorphFlex extends React.PureComponent {
 
   _onLayout = ({ nativeEvent }) => {
     const { width, height } = nativeEvent.layout;
-    console.log(nativeEvent.layout);
     this.setState({
       neomorphStyle: {
         ...this.state.neomorphStyle,
