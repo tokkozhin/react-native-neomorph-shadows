@@ -26,17 +26,17 @@ export default class NeomorphFlex extends React.PureComponent {
     const { style } = this.props;
 
     if (
-      prevState?.shadowStyle?.shadowOffset !== style?.shadowOffset ||
-      prevState?.shadowStyle?.shadowOpacity !== style?.shadowOpacity ||
-      prevState?.shadowStyle?.shadowRadius !== style?.shadowRadius ||
-      prevState?.shadowStyle?.shadowColor !== style?.shadowColor ||
-      prevState?.shadowStyle?.borderRadius !== style?.borderRadius ||
-      prevState?.shadowStyle?.backgroundColor !== style?.backgroundColor
+      prevState?.neomorphStyle?.shadowOffset !== style?.shadowOffset ||
+      prevState?.neomorphStyle?.shadowOpacity !== style?.shadowOpacity ||
+      prevState?.neomorphStyle?.shadowRadius !== style?.shadowRadius ||
+      prevState?.neomorphStyle?.shadowColor !== style?.shadowColor ||
+      prevState?.neomorphStyle?.borderRadius !== style?.borderRadius ||
+      prevState?.neomorphStyle?.backgroundColor !== style?.backgroundColor
     )
       this.setState({
         ...prevState,
-        shadowStyle: {
-          ...prevState?.shadowStyle,
+        neomorphStyle: {
+          ...prevState?.neomorphStyle,
           shadowOffset: style?.shadowOffset,
           shadowOpacity: style?.shadowOpacity,
           shadowRadius: style?.shadowRadius,
