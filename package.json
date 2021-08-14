@@ -49,5 +49,6 @@
   "devDependencies": {
     "@types/react": "^16.9.34",
     "@types/react-native": "^0.62.7"
-  }
+  },
+  "types": "index.d.ts"
 }
