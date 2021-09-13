@@ -26,8 +26,8 @@ export default class OuterShadow extends React.PureComponent {
       insideViewStyle,
       allShadowProps,
     } = transformStyleProps(style);
-    const { width, height, borderRadius } = allShadowProps;
-    const viewStyle = { borderRadius, width, height };
+    const { width, height, borderRadius, borderBottomLeftRadius, borderBottomRightRadius, borderTopRightRadius, borderTopLeftRadius } = allShadowProps;
+    const viewStyle = { borderRadius, width, height, borderBottomLeftRadius, borderBottomRightRadius, borderTopLeftRadius, borderTopRightRadius };
 
     return (
       <View style={{ ...viewStyle, ...outsideViewStyle }} {...containerProps}>

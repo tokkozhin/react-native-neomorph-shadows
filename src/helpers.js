@@ -1,21 +1,17 @@
 /* eslint-disable no-bitwise */
 import { Platform, StyleSheet } from 'react-native';
 
-export function getPathWithRadius(width, height, borderRadius) {
-  if (borderRadius) {
-    const APrefix = `A ${borderRadius}, ${borderRadius}, 0 0 1`;
-    const ATopLeft = `${APrefix} ${borderRadius},0`;
-    const ATopRight = `${APrefix} ${width},${borderRadius}`;
-    const ABottomRight = `${APrefix} ${width - borderRadius},${height}`;
-    const ABottomLeft = `${APrefix} 0,${height - borderRadius}`;
-    return `M 0,${borderRadius} ${ATopLeft} H ${
-      width - borderRadius
-      } ${ATopRight} V ${
-      height - borderRadius
-      } ${ABottomRight} H ${borderRadius} ${ABottomLeft} Z`;
-  } else {
-    return `M 0,0 H ${width} V ${height} H 0 Z`;
-  }
+export function getPathWithRadius(width, height, borderBottomLeftRadius = 0, borderBottomRightRadius = 0, borderTopRightRadius = 0, borderTopLeftRadius = 0) {
+  const APrefix = `A ${borderBottomLeftRadius}, ${borderBottomRightRadius}, 0 0 1`;
+  const ATopLeft = `${APrefix} ${borderTopLeftRadius},0`;
+  const ATopRight = `${APrefix} ${width},${borderTopRightRadius}`;
+  const ABottomRight = `${APrefix} ${width - borderBottomRightRadius},${height}`;
+  const ABottomLeft = `${APrefix} 0,${height - borderBottomLeftRadius}`;
+  return `M 0,${borderTopLeftRadius} ${ATopLeft} H ${
+    width - borderTopRightRadius
+    } ${ATopRight} V ${
+    height - borderBottomRightRadius
+    } ${ABottomRight} H ${borderBottomLeftRadius} ${ABottomLeft} Z`;
 }
 
 export function transformShadowPropsForAndroid(props) {
@@ -122,6 +118,10 @@ export function transformStyleProps(styleProps, neomorph) {
       width,
       height,
       borderRadius: borderRadius < 0 ? 0 : borderRadius,
+      borderBottomLeftRadius: borderBottomLeftRadius < 0 ? 0 : borderBottomLeftRadius,
+      borderBottomRightRadius: borderBottomRightRadius < 0 ? 0 : borderBottomRightRadius,
+      borderTopLeftRadius: borderTopLeftRadius < 0 ? 0 : borderTopLeftRadius,
+      borderTopRightRadius: borderTopRightRadius < 0 ? 0 : borderTopRightRadius,
       backgroundColor:
         backgroundColor === 'transparent' ? '#00000000' : backgroundColor,
       shadowOpacity,

@@ -32,10 +32,16 @@ export default class InnerShadowART extends React.PureComponent {
     } else {
       stroke += absOffsetY;
     }
+
+    const adaptedBorderRadius = borderRadius + stroke / 2;
+
     const path = getPathWithRadius(
       width + stroke + 2,
       height + stroke + 2,
-      borderRadius + stroke / 2,
+      adaptedBorderRadius,
+      adaptedBorderRadius,
+      adaptedBorderRadius,
+      adaptedBorderRadius,
     );
 
     return (
