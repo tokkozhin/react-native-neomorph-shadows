@@ -1,6 +1,6 @@
 declare module 'react-native-neomorph-shadows' {
   import * as React from 'react';
-  import type { ViewProps, ViewStyle } from 'react-native';
+  import type { ViewProps, ViewStyle, StyleProp } from 'react-native';
 
   /**
    * Defines all flex properties
@@ -16,8 +16,8 @@ declare module 'react-native-neomorph-shadows' {
    * View styles without flex properties because they are not supported
    */
   type ViewStyleWithoutFlex = Pick<
-    ViewStyle,
-    Exclude<keyof ViewStyle, FlexStyleProperties>
+    StyleProp<ViewStyle>,
+    Exclude<keyof StyleProp<ViewStyle>, FlexStyleProperties>
   >;
 
   interface ViewStyleWithShadow extends ViewStyleWithoutFlex {
@@ -49,7 +49,7 @@ declare module 'react-native-neomorph-shadows' {
   }
 
   interface ShadowFlexProps extends ShadowProps {
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
   }
 
   const Shadow: React.FC<ShadowProps>;
@@ -64,7 +64,7 @@ declare module 'react-native-neomorph-shadows' {
   }
 
   interface NeomorphFlexProps extends NeomorphProps {
-    style?: ViewStyle;
+    style?: StyleProp<ViewStyle>;
   }
 
   const Neomorph: React.FC<NeomorphProps>;
