@@ -10,6 +10,10 @@ export default class OuterShadowART extends React.PureComponent {
       width = 0,
       height = 0,
       borderRadius,
+      borderBottomLeftRadius,
+      borderBottomRightRadius,
+      borderTopRightRadius,
+      borderTopLeftRadius,
       shadowRadius,
       shadowOffset,
       shadowOpacity,
@@ -24,7 +28,7 @@ export default class OuterShadowART extends React.PureComponent {
       shadowColor,
     });
 
-    const path = getPathWithRadius(width, height, borderRadius);
+    const path = getPathWithRadius(width, height, borderBottomLeftRadius || borderRadius, borderBottomRightRadius || borderRadius, borderTopRightRadius || borderRadius, borderTopLeftRadius || borderRadius);
     const absOffsetX = Math.abs(shadowOffset.x);
     const absOffsetY = Math.abs(shadowOffset.y);
 

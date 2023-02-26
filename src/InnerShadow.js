@@ -13,8 +13,8 @@ export default class InnerShadow extends React.PureComponent {
       insideViewStyle,
       allShadowProps,
     } = transformStyleProps(style);
-    const { backgroundColor, width, height, borderRadius } = allShadowProps;
-    const viewStyle = { borderRadius, width, height };
+    const { backgroundColor, width, height, borderRadius, borderBottomLeftRadius, borderBottomRightRadius, borderTopRightRadius, borderTopLeftRadius } = allShadowProps;
+    const viewStyle = { borderRadius, width, height, borderBottomLeftRadius, borderBottomRightRadius, borderTopRightRadius, borderTopLeftRadius };
 
     return (
       <View style={{ ...viewStyle, ...outsideViewStyle }} {...containerProps}>
