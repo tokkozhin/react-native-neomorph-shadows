@@ -21,6 +21,31 @@ export default class NeomorphFlex extends React.PureComponent {
       layoutFinished: false,
     };
   }
+  
+  componentDidUpdate(_prevProps, prevState) {
+    const { style } = this.props;
+
+    if (
+      prevState?.neomorphStyle?.shadowOffset !== style?.shadowOffset ||
+      prevState?.neomorphStyle?.shadowOpacity !== style?.shadowOpacity ||
+      prevState?.neomorphStyle?.shadowRadius !== style?.shadowRadius ||
+      prevState?.neomorphStyle?.shadowColor !== style?.shadowColor ||
+      prevState?.neomorphStyle?.borderRadius !== style?.borderRadius ||
+      prevState?.neomorphStyle?.backgroundColor !== style?.backgroundColor
+    )
+      this.setState({
+        ...prevState,
+        neomorphStyle: {
+          ...prevState?.neomorphStyle,
+          shadowOffset: style?.shadowOffset,
+          shadowOpacity: style?.shadowOpacity,
+          shadowRadius: style?.shadowRadius,
+          shadowColor: style?.shadowColor,
+          borderRadius: style?.borderRadius,
+          backgroundColor: style?.backgroundColor,
+        },
+      });
+  }
 
   _onLayout = ({ nativeEvent }) => {
     const { width, height } = nativeEvent.layout;
